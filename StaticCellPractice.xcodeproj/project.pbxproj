@@ -14,6 +14,8 @@
 		42120F211AE4A1E20081F122 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42120F201AE4A1E20081F122 /* Images.xcassets */; };
 		42120F241AE4A1E20081F122 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42120F221AE4A1E20081F122 /* LaunchScreen.xib */; };
 		42120F301AE4A1E20081F122 /* StaticCellPracticeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 42120F2F1AE4A1E20081F122 /* StaticCellPracticeTests.m */; };
+		42120F3E1AE4A55C0081F122 /* DemoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42120F3D1AE4A55C0081F122 /* DemoTableViewController.m */; };
+		42120F411AE4B45A0081F122 /* MFMailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42120F401AE4B45A0081F122 /* MFMailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +42,10 @@
 		42120F291AE4A1E20081F122 /* StaticCellPracticeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StaticCellPracticeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		42120F2E1AE4A1E20081F122 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		42120F2F1AE4A1E20081F122 /* StaticCellPracticeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StaticCellPracticeTests.m; sourceTree = "<group>"; };
+		42120F3C1AE4A55C0081F122 /* DemoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoTableViewController.h; sourceTree = "<group>"; };
+		42120F3D1AE4A55C0081F122 /* DemoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoTableViewController.m; sourceTree = "<group>"; };
+		42120F3F1AE4B45A0081F122 /* MFMailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFMailViewController.h; sourceTree = "<group>"; };
+		42120F401AE4B45A0081F122 /* MFMailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFMailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +87,8 @@
 		42120F121AE4A1E20081F122 /* StaticCellPractice */ = {
 			isa = PBXGroup;
 			children = (
+				42120F3C1AE4A55C0081F122 /* DemoTableViewController.h */,
+				42120F3D1AE4A55C0081F122 /* DemoTableViewController.m */,
 				42120F171AE4A1E20081F122 /* AppDelegate.h */,
 				42120F181AE4A1E20081F122 /* AppDelegate.m */,
 				42120F1A1AE4A1E20081F122 /* ViewController.h */,
@@ -89,6 +97,8 @@
 				42120F201AE4A1E20081F122 /* Images.xcassets */,
 				42120F221AE4A1E20081F122 /* LaunchScreen.xib */,
 				42120F131AE4A1E20081F122 /* Supporting Files */,
+				42120F3F1AE4B45A0081F122 /* MFMailViewController.h */,
+				42120F401AE4B45A0081F122 /* MFMailViewController.m */,
 			);
 			path = StaticCellPractice;
 			sourceTree = "<group>";
@@ -219,6 +229,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42120F3E1AE4A55C0081F122 /* DemoTableViewController.m in Sources */,
+				42120F411AE4B45A0081F122 /* MFMailViewController.m in Sources */,
 				42120F1C1AE4A1E20081F122 /* ViewController.m in Sources */,
 				42120F191AE4A1E20081F122 /* AppDelegate.m in Sources */,
 				42120F161AE4A1E20081F122 /* main.m in Sources */,
