@@ -29,6 +29,8 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
+    
+    //==========loading web images=============
     NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: @"http://cdn.flaticon.com/png/256/71619.png"]];
     _webImage.image = [UIImage imageWithData: imageData];
     
@@ -37,12 +39,15 @@
     
     NSData * callImageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: @"http://cdn.flaticon.com/png/256/46854.png"]];
     _callImage.image = [UIImage imageWithData: callImageData];
+    //=========================================
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+#pragma mark - Messages emails and calls
 - (IBAction)sendMessage:(id)sender {
     if ([MFMessageComposeViewController canSendText]) {
         MFMessageComposeViewController *message = [[MFMessageComposeViewController alloc]init];
@@ -77,12 +82,17 @@
                    [NSURL URLWithString:@"tel://0934335299"]];
 }
 
-- (void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error  {     [self dismissViewControllerAnimated:YES completion:nil];
+- (void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error  {
+    //close mail view
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result{
+    //close message view
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+
 - (IBAction)openApp:(id)sender {
     BOOL result = [[UIApplication sharedApplication] openURL:
                    [NSURL URLWithString:@"peterPan://"]];
