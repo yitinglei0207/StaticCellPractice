@@ -143,24 +143,6 @@
                                         </tableViewCellContentView>
                                         <gestureRecognizers/>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="oaZ-go-nEr">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oaZ-go-nEr" id="Unj-PN-FW1">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Wf-bA-mvV">
-                                                    <rect key="frame" x="238" y="7" width="46" height="30"/>
-                                                    <state key="normal" title="Button">
-                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
-                                                    <connections>
-                                                        <action selector="openApp:" destination="KFu-T8-A9u" eventType="touchUpInside" id="AEt-ex-PSq"/>
-                                                    </connections>
-                                                </button>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Mv5-ww-iCX">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
@@ -224,9 +206,6 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
-                                                    <connections>
-                                                        <outletCollection property="gestureRecognizers" destination="BYN-zT-lQA" appends="YES" id="3zn-4M-deg"/>
-                                                    </connections>
                                                 </label>
                                             </subviews>
                                             <constraints>
@@ -238,6 +217,63 @@
                                                 <constraint firstAttribute="trailingMargin" secondItem="J8s-R2-D2X" secondAttribute="trailing" id="qKm-ql-iHp"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="wwE-95-9Eu" secondAttribute="bottom" constant="-3" id="xfd-EL-sMz"/>
                                             </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="BYN-zT-lQA" appends="YES" id="stE-yN-AGp"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="AKI-Zo-d4h">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="AKI-Zo-d4h" id="Sps-Vy-oA9">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZK3-H4-tfm">
+                                                    <rect key="frame" x="8" y="5" width="33" height="33"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="33" id="84h-NA-iZx"/>
+                                                        <constraint firstAttribute="width" constant="33" id="GPR-EO-lTY"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Open Map" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Abc-Ci-Lk0">
+                                                    <rect key="frame" x="49" y="11" width="263" height="21"/>
+                                                    <gestureRecognizers/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="ZK3-H4-tfm" secondAttribute="bottom" constant="-3" id="6Z9-9A-fQf"/>
+                                                <constraint firstItem="ZK3-H4-tfm" firstAttribute="leading" secondItem="Sps-Vy-oA9" secondAttribute="leadingMargin" id="QFR-zc-cRI"/>
+                                                <constraint firstAttribute="centerY" secondItem="ZK3-H4-tfm" secondAttribute="centerY" id="ZvT-Vr-wgQ"/>
+                                                <constraint firstAttribute="centerY" secondItem="Abc-Ci-Lk0" secondAttribute="centerY" id="cnx-Ph-63y"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Abc-Ci-Lk0" secondAttribute="trailing" id="e5O-Sh-LKA"/>
+                                                <constraint firstItem="Abc-Ci-Lk0" firstAttribute="leading" secondItem="ZK3-H4-tfm" secondAttribute="trailing" constant="8" id="mZz-xn-kTx"/>
+                                                <constraint firstItem="ZK3-H4-tfm" firstAttribute="top" secondItem="Sps-Vy-oA9" secondAttribute="topMargin" constant="-3" id="nHD-O1-EMQ"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="IKl-PN-aFX" appends="YES" id="9yg-Gs-gQ5"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="oaZ-go-nEr">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oaZ-go-nEr" id="Unj-PN-FW1">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Wf-bA-mvV">
+                                                    <rect key="frame" x="238" y="7" width="46" height="30"/>
+                                                    <state key="normal" title="Button">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="openApp:" destination="KFu-T8-A9u" eventType="touchUpInside" id="AEt-ex-PSq"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -251,6 +287,7 @@
                     <connections>
                         <outlet property="callImage" destination="wwE-95-9Eu" id="nxb-yI-m9M"/>
                         <outlet property="fbImage" destination="5CO-lH-8NQ" id="vOt-oZ-Hse"/>
+                        <outlet property="mapImage" destination="ZK3-H4-tfm" id="Xdv-Pu-frY"/>
                         <outlet property="webImage" destination="dFD-rD-fx7" id="BxT-fg-zDL"/>
                     </connections>
                 </tableViewController>
@@ -273,6 +310,11 @@
                 <tapGestureRecognizer id="BYN-zT-lQA">
                     <connections>
                         <action selector="makePhoneCall:" destination="KFu-T8-A9u" id="BCc-Gg-ma7"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="IKl-PN-aFX">
+                    <connections>
+                        <action selector="openMap:" destination="KFu-T8-A9u" id="jys-dG-oGP"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>

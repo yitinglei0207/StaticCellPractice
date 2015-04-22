@@ -11,6 +11,7 @@
 #import <Parse/Parse.h>
 #import <ParseFacebookUtils/PFFacebookUtils.h>
 #import <FacebookSDK.h>
+#import <MapKit/MapKit.h>
 
 
 @interface DemoTableViewController ()<MFMailComposeViewControllerDelegate,MFMessageComposeViewControllerDelegate>
@@ -39,6 +40,9 @@
     
     NSData * callImageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: @"http://cdn.flaticon.com/png/256/46854.png"]];
     _callImage.image = [UIImage imageWithData: callImageData];
+    
+    NSData * mapImageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: @"http://cdn.flaticon.com/png/256/69051.png"]];
+    _mapImage.image = [UIImage imageWithData: mapImageData];
     //=========================================
 }
 
@@ -79,7 +83,8 @@
 }
 - (IBAction)makePhoneCall:(id)sender {
     BOOL result = [[UIApplication sharedApplication] openURL:
-                   [NSURL URLWithString:@"tel://0934335299"]];
+                   [NSURL URLWithString:@"tel://0917659056"]];
+    NSLog(@"result %d", result);
 }
 
 - (void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error  {
@@ -96,6 +101,7 @@
 - (IBAction)openApp:(id)sender {
     BOOL result = [[UIApplication sharedApplication] openURL:
                    [NSURL URLWithString:@"peterPan://"]];
+    
 }
 
 - (IBAction)fbLoginAction:(id)sender {
@@ -166,6 +172,14 @@
         }
     }];
 }
+#pragma mark - Open Map
+- (IBAction)openMap:(id)sender {
+    MKPlacemark* place = [[MKPlacemark alloc] initWithCoordinate:CLLocationCoordinate2DMake(25.033583, 121.564493) addressDictionary: nil];
+    MKMapItem* destination = [[MKMapItem alloc] initWithPlacemark: place]; destination.name = @"Taipei 101";
+    NSArray* items = @[destination];
+    [MKMapItem openMapsWithItems: items launchOptions: nil];
+}
+
 
 #pragma mark - Table view data source
 //

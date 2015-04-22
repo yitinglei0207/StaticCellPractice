@@ -12,5 +12,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *webImage;
 @property (weak, nonatomic) IBOutlet UIImageView *fbImage;
 @property (weak, nonatomic) IBOutlet UIImageView *callImage;
+@property (weak, nonatomic) IBOutlet UIImageView *mapImage;
 
 @end
