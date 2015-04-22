@@ -8,8 +8,12 @@
 
 #import "DemoTableViewController.h"
 #import <MessageUI/MessageUI.h>
+#import <Parse/Parse.h>
+#import <ParseFacebookUtils/PFFacebookUtils.h>
+#import <FacebookSDK.h>
 
-@interface DemoTableViewController ()<MFMailComposeViewControllerDelegate>
+
+@interface DemoTableViewController ()<MFMailComposeViewControllerDelegate,MFMessageComposeViewControllerDelegate>
 
 
 @end
@@ -24,11 +28,33 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: @"http://cdn.flaticon.com/png/256/71619.png"]];
+    _webImage.image = [UIImage imageWithData: imageData];
+    
+    NSData * fbImageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: @"http://cdn.flaticon.com/png/256/33702.png"]];
+    _fbImage.image = [UIImage imageWithData: fbImageData];
+    
+    NSData * callImageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: @"http://cdn.flaticon.com/png/256/46854.png"]];
+    _callImage.image = [UIImage imageWithData: callImageData];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+- (IBAction)sendMessage:(id)sender {
+    if ([MFMessageComposeViewController canSendText]) {
+        MFMessageComposeViewController *message = [[MFMessageComposeViewController alloc]init];
+        [message setSubject:@"Sending Message"];
+        [message setRecipients:@[@"0934335299"]];
+        message.messageComposeDelegate = self;
+        
+        [self presentViewController:message animated:YES completion:nil];
+    }
+    else {
+        NSLog(@"error");
+    }
 }
 - (IBAction)sendMail:(id)sender {
     if ([MFMailComposeViewController canSendMail]) {
@@ -46,9 +72,91 @@
         
     }
 }
+- (IBAction)makePhoneCall:(id)sender {
+    BOOL result = [[UIApplication sharedApplication] openURL:
+                   [NSURL URLWithString:@"tel://0934335299"]];
+}
 
 - (void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error  {     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+- (void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+- (IBAction)openApp:(id)sender {
+    BOOL result = [[UIApplication sharedApplication] openURL:
+                   [NSURL URLWithString:@"peterPan://"]];
+}
+
+- (IBAction)fbLoginAction:(id)sender {
+    NSArray *permissionArray = @[ @"user_about_me", @"user_relationships",@"user_birthday",@"email"];
+    
+    [PFFacebookUtils logInWithPermissions:permissionArray block:^(PFUser *user, NSError *error){
+        if(!user){
+            NSString *errorMessage = nil;
+            if(!error){
+                NSLog(@"User cancelled login");
+                errorMessage = @"User cancelled login";
+            }else{
+                NSLog(@"error: %@",error );
+                errorMessage = [error localizedDescription];
+            }
+            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"login error" message:errorMessage delegate:nil cancelButtonTitle:nil otherButtonTitles:@"dismiss", nil];
+            [alert show];
+        }else{
+            if (user.isNew) {
+                NSLog(@"user FB signed up and logged in");
+                [self saveUserDataToParse];
+            }else{
+                NSLog(@"logged in!");
+                [self saveUserDataToParse];
+            }
+            
+        }
+    }];
+}
+- (IBAction)fbLogout:(id)sender {
+    [PFUser logOut];
+    NSLog(@"logged out");
+}
+
+-(void) saveUserDataToParse
+{
+    FBRequest *request = [FBRequest requestForMe];
+    
+    [request startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+        // handle response
+        if (!error) {
+            // Parse the data received
+            NSDictionary *userData = (NSDictionary *)result;
+            
+            NSString *facebookID = userData[@"id"];
+            NSString *name = userData[@"name"];
+            //some people may be make birthday public
+            //NSString *birthday = userData[@"birthday"];
+            NSString *email =userData[@"email"];
+            NSString *pictureURL =[NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large&return_ssl_resources=1", facebookID];
+            NSString *gender =userData[@"gender"];
+            
+            [[PFUser currentUser] setObject:name forKey:@"name"];
+            [[PFUser currentUser] setObject:facebookID forKey:@"facebookID"];
+            //[[PFUser currentUser] setObject:birthday forKey:@"birthday"];
+            [[PFUser currentUser] setObject:email forKey:@"email"];
+            [[PFUser currentUser] setObject:pictureURL forKey:@"pictureURL"];
+            [[PFUser currentUser] setObject:gender forKey:@"gender"];
+            
+            [[PFUser currentUser] saveInBackground];
+            
+        } else if ([[[[error userInfo] objectForKey:@"error"] objectForKey:@"type"]
+                    isEqualToString: @"OAuthException"]) { // Since the request failed, we can check if it was due to an invalid session
+            NSLog(@"The facebook session was invalidated");
+            
+        } else {
+            NSLog(@"Some other error: %@", error);
+        }
+    }];
+}
+
 #pragma mark - Table view data source
 //
 //- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

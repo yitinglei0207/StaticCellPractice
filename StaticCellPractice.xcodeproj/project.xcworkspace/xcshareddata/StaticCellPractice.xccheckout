@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>13E9DFBA-DFDF-4656-9B7E-887F3AB17AB5</string>
+	<key>IDESourceControlProjectName</key>
+	<string>StaticCellPractice</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>9E049FF338DCA18B00ECA51C4BC31F8D75F6F2A7</key>
+		<string>github.com:yitinglei0207/StaticCellPractice.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>StaticCellPractice.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>9E049FF338DCA18B00ECA51C4BC31F8D75F6F2A7</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>github.com:yitinglei0207/StaticCellPractice.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>9E049FF338DCA18B00ECA51C4BC31F8D75F6F2A7</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>9E049FF338DCA18B00ECA51C4BC31F8D75F6F2A7</string>
+			<key>IDESourceControlWCCName</key>
+			<string>StaticCellPractice</string>
+		</dict>
+	</array>
+</dict>
+</plist>
