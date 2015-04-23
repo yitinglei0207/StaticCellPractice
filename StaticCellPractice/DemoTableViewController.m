@@ -100,7 +100,7 @@
 
 - (IBAction)openApp:(id)sender {
     BOOL result = [[UIApplication sharedApplication] openURL:
-                   [NSURL URLWithString:@"peterPan://"]];
+                   [NSURL URLWithString:@"peterPan://?name=peter&height=180"]];
 
     if (result) {
         NSLog(@"opening app");
