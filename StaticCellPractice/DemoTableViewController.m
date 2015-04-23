@@ -31,7 +31,7 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     
-    //==========loading web images=============
+    //============loading web images=============
     NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: @"http://cdn.flaticon.com/png/256/71619.png"]];
     _webImage.image = [UIImage imageWithData: imageData];
     
@@ -43,7 +43,7 @@
     
     NSData * mapImageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: @"http://cdn.flaticon.com/png/256/69051.png"]];
     _mapImage.image = [UIImage imageWithData: mapImageData];
-    //=========================================
+    //===========================================
 }
 
 - (void)didReceiveMemoryWarning {
@@ -101,7 +101,10 @@
 - (IBAction)openApp:(id)sender {
     BOOL result = [[UIApplication sharedApplication] openURL:
                    [NSURL URLWithString:@"peterPan://"]];
-    
+
+    if (result) {
+        NSLog(@"opening app");
+    }
 }
 
 - (IBAction)fbLoginAction:(id)sender {
